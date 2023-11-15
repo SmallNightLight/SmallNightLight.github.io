@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&family=Titillium+Web:wght@400;700&display=swap');
+
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Titillium Web', sans-serif;
+        background-color: #403D39;
+        color: white;
+    }
+  
+    /* Style for the header section */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        z-index: 20;
+        position: fixed;
+        width: 100vw;
+    }
+    
+    .Logo p{
+        padding-left: 10px;
+        margin-bottom: 30px;
+    }
+
+    .Logo strong{
+        padding: 10px;
+        font-size: 30px;
+    }
+
+    .Logo img {
+        margin: 10px;
+        margin-top: 80px;
+        height: 170px;
+    }
+
+    /* Style for the title */
+    header h1 {
+        font-size: 40px;
+        text-align: center;
+        margin: 0px auto;
+    }
+    
+    /* Style for the quick links */
+    header .QuickLinks {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        margin: 20px;
+    }
+
+    header .QuickLinks a img{
+        width: 25px;
+    }
+    
+    /* Style for the menu */
+    .Menu {
+        width: 250px;
+        height: 100vh;
+        padding: 20px;
+        color: white;
+        position: fixed;
+        top: 100px;
+        left: 0px;
+        z-index: 0;
+    }
+    
+    .Menu input[type="search"] {
+        width: 90%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+    }
+    
+    .Menu .MenuItems {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .Menu a{
+        color: white;;
+        text-decoration: none;
+        padding: 13px;
+        border-radius: 3px;
+        transition: all 0.2s ease-in-out;
+        font-size: 16px;
+    }
+
+    .Menu2{
+        width: 250px;
+        display: none;
+        padding: 20px;
+        color: white;
+        position: absolute;
+        top: 470px;
+        left: 250px;
+        z-index: 1;
+    }
+
+    .Menu2 section{
+        margin: 20px 10px;
+        display: none;
+        flex-direction: column;
+    }
+
+    a{
+        cursor: pointer;
+    }
+
+    .Menu2 section a {
+        padding-top: 20px;
+        font-size: 15px;
+        color: white;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .Menu2 section a:hover{
+        color: #FF5900;
+    }
+    
+   .SocialMedia {
+        padding: 10px;
+        color: white;
+        position: fixed;
+        left: 0px;
+        border: none;
+        bottom: 0px;
+   }
+
+    .SocialMedia a img{
+        width: 30px;
+        border: none;
+    }
+    
+    .Discover {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        flex: 1 1 700px
+    }
+    
+    .Discover a {
+        max-width: 230px;
+        width: 230px;
+        height: 230px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: 10px;
+        
+        margin-bottom: 15px;
+        display: flex;
+        align-items:end;
+        justify-content: center;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 18px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+
+        flex: 3 1 200px;
+        transition: background-size 0.5s ease-out, color 0.2s ease-in-out;
+        background-size: 100%;
+    }
+
+    .Discover a nav h2 {
+        background-color: rgb(37, 37, 37);
+        border-radius: 3px;
+        padding: 10px;
+        width: 230px;
+        text-align: center;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .Discover a:hover{
+        background-size: 120%;
+    }
+
+    .Discover a:nth-child(1) {
+        background-image: url(../Images/Discover/Notation.jpg);
+    }
+
+    .Discover a:nth-child(2) {
+        background-image: url(../Images/Discover/Learn.jpg);
+    }
+
+    .Discover a:nth-child(3) {
+        background-image: url(../Images/Discover/Timer.jpg);
+    }
+
+    .Discover a:nth-child(4) {
+        background-image: url(../Images/Discover/Solver.jpg);
+    }
+
+    .Discover a:nth-child(5) {
+        background-image: url(../Images/Discover/Speedcubing.jpg);
+    }
+
+    .Discover a:nth-child(6) {
+        background-image: url(../Images/Discover/Random.jpg);
+    }
+
+
+    a:hover{
+        color: #FF5900;
+    }
+  
+    .mainMain{
+        /*position: absolute;
+        top: 95px;
+        margin-left: 260px;*/
+        max-width: 755px;
+    }
+
+    .pageDescription {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 15px;
+        margin-left: 10px;
+        padding: 20px;
+    }
+
+    .article{
+        margin-top: 100px;
+        margin-left: 300px;
+        margin-right: 100px;
+        margin-bottom: 50px;
+        padding: 30px;
+        max-width: 800px;
+        background-color: #252422;
+        justify-content: center;
+    }
+
+    .article h1{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        font-size: 48px;
+    }
+
+    .article a {
+        color: #FF5900;
+        text-decoration: none;
+        border-radius: 3px;
+        transition: all 0.2s ease-in-out;
+        font-size: 16px;
+    }
+
+    .article a:hover{
+        color: #973500;
+    }
+
+    .article img{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .MainSection{
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 250px;
+        padding-top: 100px;
+    }
+
+    .Menu, .Menu2, .AboutMe p, .Blog, nav.Discover a h2, .articleMain, .pageDescription, header, .News{
+        border-radius: 3px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        background-color: #252422;
+    }
+
+    .Page{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ul{
+        margin-left: 30px;
+    }
+
+    .code{
+        background-color: rgb(28, 25, 25);
+        padding: 10px;
+        white-space: pre-wrap;
+        margin: 20px 00px;
+    }
+
+
+    @media only screen and (max-width: 1360px) {
+        .News {
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 1360px) {
+        .News {
+            margin-top: 30px;
+            margin-left: 10px;
+            padding: 15px;
+            flex: 0 0 325px;
+            height: 100%;
+        }
+        
+        .News h2 {
+            padding-left: 10px;
+            padding-bottom: 10px;
+            font-size: 27px;
+            margin-bottom: 20px;
+            border-bottom: white solid;
+        }
+        
+        .News section {
+            margin-bottom: 20px;
+        }
+    
+        
+        .News p {
+            font-size: 14px;
+        }
+        
+        .News a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .News a:hover{
+            color: #FF5900;
+        }
+    }
+

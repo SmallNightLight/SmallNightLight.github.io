@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Matthias Kruis</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+    <header>
+        <h1>Portfolio Matthias Kruis</h1>
+
+    </header>
+    <aside class="Menu" id="Menu">
+        <a href="index.html" class="Logo">
+            <strong>Portfolio</strong>
+        </a>
+        <input type="search" id="SearchField" placeholder="Search">
+        <section class="MenuItems">
+            <a onclick="OpenMenu('Page1')">Home</a>
+            <a href="#">About me!</a>
+            <a href="#">All Projects</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </section>
+        <section class="SocialMedia">
+            <a href="index.html">
+                <img src="Images/Social Media/Facebook.svg" title="Facebook">
+            </a>
+            <a href="index.html">
+                <img src="Images/Social Media/Insta.svg" title="Instagram">
+            </a>
+            <a href="index.html">
+                <img src="Images/Social Media/Twitter.svg" title="Twitter">
+            </a>
+            <a href="index.html">
+                <img src="Images/Social Media/Youtube.svg" title="Youtube">
+            </a>
+        </section>
+    </aside>
+    <section class="MainSection" id = "MainSection">
+        <main class="mainMain">
+            <section class="pageDescription">
+                <article>
+                    <p>Hey there! This is my portfolio website - I'm Matthias Kruis, a Game Design student with a specialization in Engineering. I am interested in game programming and game system architecture. Through my projects, I have learned some game development tools and programming languages. This includes Unity, C#, HTML/CSS/Javascript and more. On this website, I'm excited to showcase my skills and projects that reflect my passion for creating games!<br><a href="https://nightmatthias.itch.io">https://nightmatthias.itch.io</a></p>
+                </article>
+            </section>
+            <section class="Discover">
+                <a onclick="OpenPage('Page1')">
+                    <nav>
+                        <h2>Page 1</h2>
+                    </nav>
+                </a>
+                <a href="index.html">
+                    <nav>
+                        <h2>Learn to solve</h2>
+                    </nav>
+                </a>
+                <a href="index.html">
+                    <nav>
+                        <h2>Online Timer</h2>
+                    </nav>
+                </a>
+                <a href="index.html">
+                    <nav>
+                        <h2>Cube Solver</h2>
+                    </nav>
+                </a>
+                <a href="index.html">
+                    <nav>
+                        <h2>Speed cubing</h2>
+                    </nav>
+                </a>
+                <a href="godsNumber.html">
+                    <nav>
+                        <h2>Random Page</h2>
+                    </nav>
+                </a>
+            </section>
+        </main>
+        <aside class="News">
+            <h2><a href="index.html">Blogs</a></h2>
+            <a href="index.html">
+                <section>
+                    <h3>Empty 1</h3>
+                    <p>Text here..............................................</p>
+                </section>
+            </a>
+            <a href="index.html">
+                <section>
+                    <h3>Empty 2</h3>
+                    <p>Text here..............................................</p>
+                </section>
+            </a>
+            <a href="index.html">
+                <section>
+                    <h3>Empty 3</h3>
+                    <p>Text here..............................................</p>
+                </section>
+            </a>
+        </aside>
+    </section>
+    <section class="Page" id="Page1">
+        <article class="article">
+            <p>
+                <a onclick="OpenMenu('Page1')">Home</a> > 
+                <a>Page 1</a>
+            </p>
+            <h1>Creating 3d pixel art in unity 2022 URP</h1>
+            <p>
+                Hey there! The 3d pixel art effect is a very cool way to create an interesting indie game look for your game! We need a few different systems to achieve this:
+            </p>
+            <br>
+            <ul>
+                <li>The pixel effect</li>
+                <li>A toon shader with custom lighting</li>
+                <li>An outline effect</li>
+            </ul>
+            <br>
+            <br>
+            <h2>I. PIXELIZATION</h3>
+            <br>
+            <p>
+                The most important system is the pixelization. This can be done fairly easy by changing the screen pixel size in the project settings. But this gives limited control over the final result and will pixelize everything. So UI can not be excluded. 
+            </p>
+            <br>
+            <p>
+                To fix this, we can write a custom render feature to add a custom pass to unity's rendering system. This feature has changed a lot over the recent unity versions. I am using unity 2022.3. Check this page for more information on the <a href="https://www.cyanilux.com/tutorials/custom-renderer-features/">Custom Renderer Features</a>
+            </p>
+            <p>
+                First we need a render feature to control the pass.
+            </p>  
+            <br>
+            <p>
+                PixelizerRenderFeature.cs:
+            </p>     
+<section class="code"><code>using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class PixelizerRenderFeature : ScriptableRendererFeature
+{
+    [SerializeField] private PixelizePassSettings _settings;
+    private PixelizeRenderPass _pixelizePass;
+
+    public override void Create()
+    {
+        _pixelizePass = new PixelizeRenderPass(_settings);
+    }
+
+    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+    {
+#if UNITY_EDITOR
+        if (renderingData.cameraData.isSceneViewCamera)
+            return;
+#endif
+
+        renderer.EnqueuePass(_pixelizePass);
+    }
+}
+
+[System.Serializable]
+public class PixelizePassSettings
+{
+    public int ScreenHeight = 480;
+    public RenderPassEvent RenderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+}</code></section>
+            <p>
+                This is the layout of a default custom render feature. First we get the settings that control the pixelizer and then we create the pass and enqueue it, where PixelizeRenderPass gives the order where unity will do the pixel pass. We want to render the pixel effect after we apply toon shading and the outline effect - so before the post processing passes will be fine!
+            </p>
+            <p>
+                Next we will write the pass that controls the way unity will apply the pixel effect.
+            </p>
+            <br>
+            <p>
+                PixelizeRenderPass.cs:
+            </p>     
+<section class="code"><code>using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class PixelizeRenderPass : ScriptableRenderPass
+{
+    private PixelizePassSettings _settings;
+    private RTHandle _source;
+    private RenderTargetIdentifier _destination;
+    private int _pixelBufferID = Shader.PropertyToID("_PixelBuffer");
+
+    private Material _material;
+    private int _pixelScreenWidth, _pixelScreenHeight;
+
+    public PixelizeRenderPass(PixelizePassSettings settings)
+    {
+        _settings = settings;
+        renderPassEvent = settings.RenderPassEvent;
+
+        if (_material == null)
+            _material = CoreUtils.CreateEngineMaterial("Hidden/Pixelize");
+    }
+
+    public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
+    {
+        if (_material == null)
+            return;
+
+        _source = renderingData.cameraData.renderer.cameraColorTargetHandle;
+        RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
+
+        _pixelScreenHeight = _settings.ScreenHeight;
+        _pixelScreenWidth = (int)(_pixelScreenHeight * renderingData.cameraData.camera.aspect);
+
+        _material.SetVector("_PixelScreenSize", new Vector2(_pixelScreenWidth, _pixelScreenHeight));
+
+        descriptor.width = _pixelScreenWidth;
+        descriptor.height = _pixelScreenHeight;
+
+        cmd.GetTemporaryRT(_pixelBufferID, descriptor, FilterMode.Point);
+        _destination = new RenderTargetIdentifier(_pixelBufferID);
+    }
+
+    public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+    {
+        CommandBuffer cmd = CommandBufferPool.Get();
+
+        using (new ProfilingScope(cmd, new ProfilingSampler("Pixelize Pass")))
+        {
+            cmd.Blit(_source, _destination, _material);
+            cmd.Blit(_destination, _source);
+        }
+
+        context.ExecuteCommandBuffer(cmd);
+        CommandBufferPool.Release(cmd);
+    }
+
+    public override void OnCameraCleanup(CommandBuffer cmd)
+    {
+        cmd.ReleaseTemporaryRT(_pixelBufferID);
+    }
+}</code></section>
+            <p>
+                This pass script takes the settings from the render feature and uses them to create a material from a pixel shader. In the new unity version mainly RTHandles and blit them with a material in the Execute() method (like Update()). Note in the current version untiy doesn't allow to blit a RTHandle to itself so we will need to create a buffer.
+            </p>
+            <br>
+            <p>
+                The last script for the pixelizer feature is the shader to finally do the pixel effect.
+            </p>
+            <br>
+            <p>
+                Pixelize.hlsl:
+            </p>     
+<section class="code"><code>Shader "Hidden/Pixelize"
+{
+    Properties
+    {
+        _MainTex ("Texture", 2D) = "white"
+    }
+
+    SubShader
+    {
+        Tags
+        {
+            "RenderType"="Opaque" "RenderPipeline" = "UniversalPipeline"
+        }
+
+        HLSLINCLUDE
+        #pragma vertex vert
+        #pragma fragment frag
+
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+        struct Attributes
+        {
+            float4 positionOS   : POSITION;
+            float2 uv           : TEXCOORD0;
+        };
+
+        struct Varyings
+        {
+            float4 positionHCS  : SV_POSITION;
+            float2 uv           : TEXCOORD0;
+        };
+
+        TEXTURE2D(_MainTex);
+        float4 _MainTex_ST;
+        SamplerState sampler_point_clamp;
+        
+        float2 _PixelScreenSize;
+
+        Varyings vert(Attributes IN)
+        {
+            Varyings OUT;
+            OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
+            OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
+
+            return OUT;
+        }
+
+        ENDHLSL
+
+        Pass
+        {
+            Name "Pixelation"
+
+            HLSLPROGRAM
+            half4 frag(Varyings IN) : SV_TARGET
+            {
+                float2 pixelPosition = floor(IN.uv * _PixelScreenSize);
+                float2 center = (pixelPosition + 0.5) / _PixelScreenSize;
+                return SAMPLE_TEXTURE2D(_MainTex, sampler_point_clamp, center);
+            }
+            ENDHLSL
+        }
+    }
+}</code></section>
+            <p>
+                This shader takes the screen width and height (in pixels) an caculates the position. The pixelation effect is achieved by sampling the texture at a lower resolution based on the _PixelScreenSize variable. This shader is written for the Universal Render Pipeline, as for the upcoming effects.
+            </p>
+            <br>
+            <p>
+                To set up this effect in unity we will need to add a new render feature in the URP Asset (probably "UniversalRenderPipelineAsset_Renderer"):
+            </p>
+            <img src="Images/Page1/AddingRenderFeature.png">
+            <p>
+                You might also want to add the shader in the project settings to be "always include".
+            </p>
+            <br>
+            <p>
+                RESULT
+            </p>
+            <video height="240" autoplay loop>
+                <source src="Videos/PixelEffect.mkv" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>
+            <br>
+            <h2>II. TOON EFFECT</h3>
+            <br>
+            <p>
+                Kind of complicated...
+            </p>
+            <br>
+            <br>
+            <h2>III. OUTLINES</h3>
+            <br>
+            <p>
+                The outline effect is not as important as in some other toon art styles, but highlighting the edges of some objects like stones is definetly needed to even be able to see clear edges!
+            </p>
+            <br>
+            <p>
+                This effect will be like the pixelation effect. We will create a custom render feature and shader to apply outlines to the objects.
+            </p>
+            <br>
+            <p>
+                OutlineRenderFeatur.cs:
+            </p>     
+<section class="code"><code>using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class OutlineRenderFeature : ScriptableRendererFeature
+{
+    [SerializeField] private OutlinePassSettings _settings;
+    private OutlineRenderPass _outlinePass;
+
+    public override void Create()
+    {
+        _outlinePass = new OutlineRenderPass(_settings, name);
+    }
+
+    public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+    {
+#if UNITY_EDITOR
+        if (renderingData.cameraData.isSceneViewCamera)
+            return;
+#endif
+
+        renderer.EnqueuePass(_outlinePass);
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        _outlinePass.Dispose();
+    }
+}
+
+[System.Serializable]
+public class OutlinePassSettings
+{
+    public Color OutlineColor;
+    public float Threshhold;
+    public float Thickness;
+
+    public RenderPassEvent RenderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+}</code></section>
+        <p>
+            The only difference to the pixelize render feature is that we utilized the Dispose() methode to Dispose the render pass.
+        </p>
+        <br>
+            <p>
+                OutlineRenderPass.cs:
+            </p>     
+<section class="code"><code>using UnityEngine;
+    using UnityEngine.Rendering;
+    using UnityEngine.Rendering.Universal;
+    
+    public class OutlineRenderPass : ScriptableRenderPass
+    {
+        private OutlinePassSettings _settings;
+    
+        private RTHandle _source;
+        private RTHandle _destination;
+        private RTHandle _temp;
+    
+        private string _profilerTag;
+    
+        private Material _material;
+    
+        public OutlineRenderPass(OutlinePassSettings settings, string tag)
+        {
+            profilingSampler = new ProfilingSampler("Outlines");
+    
+            _settings = settings;
+    
+            renderPassEvent = settings.RenderPassEvent;
+            _profilerTag = tag;
+    
+            if (_material == null)
+                _material = CoreUtils.CreateEngineMaterial("Shader Graphs/Outlines");
+        }
+    
+        public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
+        {
+            if (_material == null)
+                return;
+    
+            ConfigureInput(ScriptableRenderPassInput.Normal);
+    
+            var descriptor = renderingData.cameraData.cameraTargetDescriptor;
+            descriptor.depthBufferBits = 0;
+    
+            RenderingUtils.ReAllocateIfNeeded(ref _temp, descriptor, name: "_TemporaryColorTexture");
+    
+            var renderer = renderingData.cameraData.renderer;
+            _source = _destination = renderer.cameraColorTargetHandle;
+    
+            _material.SetColor("_Color", _settings.OutlineColor);
+            _material.SetFloat("_Threshhold", _settings.Threshhold);
+            _material.SetFloat("_Thickness", _settings.Thickness);
+        }
+    
+        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+        {
+            if (renderingData.cameraData.cameraType == CameraType.Preview)
+                return;
+    
+            CommandBuffer cmd = CommandBufferPool.Get(_profilerTag);
+    
+            using (new ProfilingScope(cmd, new ProfilingSampler("Outline Pass")))
+            {
+                Blitter.BlitCameraTexture(cmd, _source, _temp, _material, 0);
+                Blitter.BlitCameraTexture(cmd, _temp, _destination, Vector2.one);
+            }
+    
+            context.ExecuteCommandBuffer(cmd);
+            CommandBufferPool.Release(cmd);
+        }
+    
+        public override void OnCameraCleanup(CommandBuffer cmd)
+        {
+            _source = null;
+            _destination = null;
+        }
+    
+        public void Dispose()
+        {
+            _temp?.Release();
+        }
+    }</code></section>
+            <p>
+                If you are coming from an older unity version the most important line is probably ConfigureInput(ScriptableRenderPassInput.Normal); This is needed for the shader to get the necessary normal information. Otherwise this is not to different from the pixel pass.
+            </p>
+            <br>
+            <p>
+                For the outline shader we can just use shader graph. Important is that this will be a fullscreen shader!
+            </p>
+            <br>
+            <p>
+                Outlines.shadergraph:
+            </p>  
+            <img src="Images/Page1/OutlineShader.png">
+            <p>
+                The shader mainly works with the new URP Sample Buffer node and uses the normals to determine if there should be an outline.
+            </p>
+            <br>
+            <p>
+                RESULT
+            </p>
+            <video height="300" autoplay loop>
+                <source src="Videos/OutlineVideo.mkv" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>
+            <br>
+        </article>
+    </section>
+    <script>
+        var mainSection = document.getElementById("MainSection")
+
+        function OpenPage(pageName){
+            console.log("Open Page (" + pageName + ")");
+            mainSection.style.display = "none";
+            document.getElementById(pageName).style.display = "flex";
+        }
+
+        function OpenMenu(pageName){
+            console.log("Open Menu (Old page: " + pageName + ")");
+             document.getElementById(pageName).style.display = "none";
+            mainSection.style.display = "flex";
+        }
+	</script>
+</body>
+</html>
