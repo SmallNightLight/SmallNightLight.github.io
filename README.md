@@ -1,1 +1,1 @@
-Visit [SmallNightLight.github.io](SmallNightLight.github.io)
+Visit [smallnightlight.github.io](https://smallnightlight.github.io/)
