@@ -1,30 +1,30 @@
 const menuTemplate = document.createElement('template');
 menuTemplate.innerHTML = `
-<link rel="stylesheet" href="../CSS/style.css">
+<link rel="stylesheet" href="/CSS/style.css">
 <aside class="Menu" id="Menu">
-            <a href="index.html" class="Logo">
+            <a href="/index.html" class="Logo">
                 <strong>Portfolio</strong>
             </a>
             <input type="search" id="SearchField" placeholder="Search">
             <section class="MenuItems">
-                <a onclick="OpenMenu('Page1')">Home</a>
+            <a href="/index.html">Home</a>
                 <a href="#">About me!</a>
                 <a href="#">All Projects</a>
                 <a href="#">Blog</a>
                 <a href="#">Contact</a>
             </section>
             <section class="SocialMedia">
-                <a href="index.html">
-                    <img src="Images/Social Media/Facebook.svg" title="Facebook">
+                <a href="/index.html">
+                    <img src="/Images/Social Media/Facebook.svg" title="Facebook">
                 </a>
-                <a href="index.html">
-                    <img src="Images/Social Media/Insta.svg" title="Instagram">
+                <a href="/index.html">
+                    <img src="/Images/Social Media/Insta.svg" title="Instagram">
                 </a>
-                <a href="index.html">
-                    <img src="Images/Social Media/Twitter.svg" title="Twitter">
+                <a href="/index.html">
+                    <img src="/Images/Social Media/Twitter.svg" title="Twitter">
                 </a>
-                <a href="index.html">
-                    <img src="Images/Social Media/Youtube.svg" title="Youtube">
+                <a href="/index.html">
+                    <img src="/Images/Social Media/Youtube.svg" title="Youtube">
                 </a>
             </section>
         </aside>

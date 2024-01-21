@@ -111,7 +111,7 @@
     .Discover a {
         max-width: 230px;
         width: 230px;
-        height: 230px;
+        height: 180px;
         background-repeat: no-repeat;
         background-position: center center;
         margin: 10px;
@@ -122,7 +122,7 @@
         justify-content: center;
         text-decoration: none;
         color: #ffffff;
-        font-size: 18px;
+        font-size: 17px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         border-radius: 4px;
 
@@ -145,14 +145,14 @@
     }
 
     .Discover a:nth-child(1) {
-        background-image: url(../Images/Page1/Intro.png); /* Put image link here */
+        background-image: url(/Pages/Page1/Images/Thumbnail.png); /* Put image link here */
     }
 
-    /*.Discover a:nth-child(2) {
-        background-image: url());
+    .Discover a:nth-child(2) {
+        background-image: url(/Pages/Page2/Images/Thumbnail.png);
     }
 
-    .Discover a:nth-child(3) {
+    /*.Discover a:nth-child(3) {
         background-image: url());
     }
 
@@ -240,7 +240,7 @@
     }
 
     .Page{
-        display: none;
+        display: flex;
         align-items: center;
         justify-content: center;
     }
@@ -299,4 +299,3 @@
             color: #FF5900;
         }
     }
-
