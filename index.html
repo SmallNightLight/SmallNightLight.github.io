@@ -4,40 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Matthias Kruis</title>
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/style.css"/>
+    <script src="Components/header.js" type="text/javascript" defer></script>
+    <script src="Components/menu.js" type="text/javascript" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Portfolio Matthias Kruis</h1>
-
-    </header>
-    <aside class="Menu" id="Menu">
-        <a href="index.html" class="Logo">
-            <strong>Portfolio</strong>
-        </a>
-        <input type="search" id="SearchField" placeholder="Search">
-        <section class="MenuItems">
-            <a onclick="OpenMenu('Page1')">Home</a>
-            <a href="#">About me!</a>
-            <a href="#">All Projects</a>
-            <a href="#">Blog</a>
-            <a href="#">Contact</a>
-        </section>
-        <section class="SocialMedia">
-            <a href="index.html">
-                <img src="Images/Social Media/Facebook.svg" title="Facebook">
-            </a>
-            <a href="index.html">
-                <img src="Images/Social Media/Insta.svg" title="Instagram">
-            </a>
-            <a href="index.html">
-                <img src="Images/Social Media/Twitter.svg" title="Twitter">
-            </a>
-            <a href="index.html">
-                <img src="Images/Social Media/Youtube.svg" title="Youtube">
-            </a>
-        </section>
-    </aside>
+    <portfolio-header></portfolio-header>
+    <portfolio-menu></portfolio-menu>
     <section class="MainSection" id = "MainSection">
         <main class="mainMain">
             <section class="pageDescription">
@@ -596,12 +569,14 @@ public class OutlinePassSettings
             console.log("Open Page (" + pageName + ")");
             mainSection.style.display = "none";
             document.getElementById(pageName).style.display = "flex";
+            history.pushState({ page: pageName }, null, pageName);
         }
 
         function OpenMenu(pageName){
             console.log("Open Menu (Old page: " + pageName + ")");
-             document.getElementById(pageName).style.display = "none";
+            document.getElementById(pageName).style.display = "none";
             mainSection.style.display = "flex";
+            history.pushState(null, null, '/');
         }
 	</script>
 </body>

@@ -46,19 +46,6 @@
         margin: 0px auto;
     }
     
-    /* Style for the quick links */
-    header .QuickLinks {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 20px;
-        margin: 20px;
-    }
-
-    header .QuickLinks a img{
-        width: 25px;
-    }
-    
     /* Style for the menu */
     .Menu {
         width: 250px;
@@ -95,36 +82,8 @@
         font-size: 16px;
     }
 
-    .Menu2{
-        width: 250px;
-        display: none;
-        padding: 20px;
-        color: white;
-        position: absolute;
-        top: 470px;
-        left: 250px;
-        z-index: 1;
-    }
-
-    .Menu2 section{
-        margin: 20px 10px;
-        display: none;
-        flex-direction: column;
-    }
-
     a{
         cursor: pointer;
-    }
-
-    .Menu2 section a {
-        padding-top: 20px;
-        font-size: 15px;
-        color: white;
-        transition: all 0.2s ease-in-out;
-    }
-
-    .Menu2 section a:hover{
-        color: #FF5900;
     }
     
    .SocialMedia {
@@ -186,28 +145,28 @@
     }
 
     .Discover a:nth-child(1) {
-        background-image: url(../Images/Page1/Intro.png);
+        background-image: url(../Images/Page1/Intro.png); /* Put image link here */
     }
 
-    .Discover a:nth-child(2) {
-        background-image: url(../Images/Discover/Learn.jpg);
+    /*.Discover a:nth-child(2) {
+        background-image: url());
     }
 
     .Discover a:nth-child(3) {
-        background-image: url(../Images/Discover/Timer.jpg);
+        background-image: url());
     }
 
     .Discover a:nth-child(4) {
-        background-image: url(../Images/Discover/Solver.jpg);
+        background-image: url());
     }
 
     .Discover a:nth-child(5) {
-        background-image: url(../Images/Discover/Speedcubing.jpg);
+        background-image: url());
     }
 
     .Discover a:nth-child(6) {
-        background-image: url(../Images/Discover/Random.jpg);
-    }
+        background-image: url());
+    }*/
 
 
     a:hover{
@@ -215,9 +174,6 @@
     }
   
     .mainMain{
-        /*position: absolute;
-        top: 95px;
-        margin-left: 260px;*/
         max-width: 755px;
     }
 
