@@ -145,17 +145,17 @@
     }
 
     .Discover a:nth-child(1) {
-        background-image: url(/Pages/Page1/Images/Thumbnail.png); /* Put image link here */
+        background-image: url(/Pages/Page1/Images/Thumbnail.png);
     }
 
     .Discover a:nth-child(2) {
         background-image: url(/Pages/Page2/Images/Thumbnail.png);
     }
 
-    /*.Discover a:nth-child(3) {
-        background-image: url());
+    .Discover a:nth-child(3) {
+        background-image: url(/Pages/Page3/Images/Thumbnail.png);
     }
-
+/*
     .Discover a:nth-child(4) {
         background-image: url());
     }
@@ -167,6 +167,11 @@
     .Discover a:nth-child(6) {
         background-image: url());
     }*/
+
+    video{
+        margin-bottom: 10px;
+        margin-top: 15px;
+    }
 
 
     a:hover{
