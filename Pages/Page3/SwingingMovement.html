@@ -209,6 +209,11 @@ if (Input.GetKey(KeyCode.Space))
     _swingPlaneAll = new Plane(transform.position, _finalHookPosition, transform.position + new Vector3(input.x, 0, input.y));
 }</code></section>
             <p>We can add our omni directional air movement to the extraSwingVelocity:</p>
+            <section class="code"><code> if (currentInput != Vector2.zero)
+{
+    extraSwingVelocity += GetSwingDirection(_swingPlaneAll);
+}</code></section>
+            <p>or just apply the input directly</p>
             <section class="code"><code>if (currentInput != Vector2.zero)
 {
     extraSwingVelocity += new Vector3(currentInput.x, 0, currentInput.y);
