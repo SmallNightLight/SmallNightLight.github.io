@@ -50,12 +50,12 @@
 }</code></section>
             <p>If we hit something we will set our hook position to the hitpoint, otherwise just set it to the maximum throw distance. We will still throw the rope but it will not hit anything.</p>
             <p>With the line rendere component we can easily visualize the rope:</p>
-            <video height="240" autoplay loop>
+            <video height="240" autoplay loop controls>
                 <source src="Videos/ThrowHookSimple.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <p>To improve the visuals a bit, I implemented an animation for the throwing effect like in <a href="https://www.youtube.com/watch?v=8nENcDnxeVE">this video</a></p>
-            <video height="240" autoplay loop>
+            <video height="240" autoplay loop controls>
                 <source src="Videos/ThrowHookComplex.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -89,7 +89,7 @@ if (Input.GetKey(KeyCode.Space))
     _currentDistance -= _shortenSpeed * Time.fixedDeltaTime;
     _swingJoint.minDistance = _currentDistance;
 }</code></section>
-            <video height="240" autoplay loop>
+            <video height="240" autoplay loop controls>
                 <source src="Videos/WeirdGrapplingMovement.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -181,7 +181,7 @@ if (Input.GetKey(KeyCode.Space))
     _rigidbody.velocity = desiredVelocity;
 }</code></section>
             <p>Result:</p>
-            <video height="360" autoplay loop>
+            <video height="360" autoplay loop controls>
             <source src="Videos/BasicSwingMovement.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -221,7 +221,7 @@ if (Input.GetKey(KeyCode.Space))
             <p>Also note, the _swingPlaneAll should be calculated new whenever any new input is registered except (0, 0)</p>
             <br>
             <p>Lastly I madae a small prototype with the swinging mechanic: </p>
-            <video height="360" autoplay loop>
+            <video height="360" autoplay loop controls>
                 <source src="Videos/FinalResult.mp4" type="video/mp4">
                     Your browser does not support the video tag.
             </video>

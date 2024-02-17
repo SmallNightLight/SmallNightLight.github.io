@@ -155,11 +155,11 @@
     .Discover a:nth-child(3) {
         background-image: url(/Pages/Page3/Images/Thumbnail.png);
     }
-/*
-    .Discover a:nth-child(4) {
-        background-image: url());
-    }
 
+    .Discover a:nth-child(4) {
+        background-image: url(/Pages/Page4/Images/Thumbnail.png);
+    }
+/*
     .Discover a:nth-child(5) {
         background-image: url());
     }
