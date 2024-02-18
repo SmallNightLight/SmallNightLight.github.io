@@ -2,7 +2,7 @@ const headerTemplate = document.createElement('template');
 headerTemplate.innerHTML = `
 <link rel="stylesheet" href="/CSS/style.css">
 <header>
-    <h1>Portfolio Matthias Kruis</h1>
+    <h1>Matthias Kruis</h1>
 </header>
 `;
 

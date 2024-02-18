@@ -14,17 +14,14 @@ menuTemplate.innerHTML = `
                 <a href="#">Contact</a>
             </section>
             <section class="SocialMedia">
-                <a href="/index.html">
-                    <img src="/Images/Social Media/Facebook.svg" title="Facebook">
+                <a href="https://github.com/SmallNightLight" target="_blank">
+                    <img src="/Images/Social Media/Github.svg" title="Github">
                 </a>
-                <a href="/index.html">
-                    <img src="/Images/Social Media/Insta.svg" title="Instagram">
+                <a href="https://www.linkedin.com/in/matthias-kruis" target="_blank">
+                    <img src="/Images/Social Media/LinkedIn.svg" title="LinkedIn">
                 </a>
-                <a href="/index.html">
-                    <img src="/Images/Social Media/Twitter.svg" title="Twitter">
-                </a>
-                <a href="/index.html">
-                    <img src="/Images/Social Media/Youtube.svg" title="Youtube">
+                <a href="https://nightmatthias.itch.io/" target="_blank">
+                    <img src="/Images/Social Media/Itch2.svg" title="Itch.io">
                 </a>
             </section>
         </aside>
