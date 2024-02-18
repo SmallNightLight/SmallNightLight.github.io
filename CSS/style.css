@@ -47,23 +47,77 @@
     }
     
     /* Style for the menu */
-    .Menu {
-        width: 250px;
-        height: 100vh;
-        padding: 20px;
-        color: white;
-        position: fixed;
-        top: 100px;
-        left: 0px;
-        z-index: 0;
+    @media only screen and (max-width: 950px) {
+        .Menu {
+            width: 100%;
+            height: 360px;
+            padding: 20px;
+            color: white;
+            top: 150px;
+            z-index: 0;
+        }
+
+        .Menu .MenuItems {
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .article{
+            margin: 50px 50px 50px 50px;
+        }
+
+        .MainSection{
+            margin-left: 0px;
+            padding-top: 0px;
+        }
     }
-    
-    .Menu .MenuItems {
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
+
+    @media only screen and (min-width: 950px) {
+        .Menu {
+            width: 250px;
+            height: 100vh;
+            padding: 20px;
+            color: white;
+            position: fixed;
+            top: 100px;
+            left: 0px;
+            z-index: 0;
+        }
+
+        .Menu .MenuItems {
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .article{
+            margin: 100px 50px 50px 300px;
+        }
+
+        .MainSection{
+            margin-left: 250px;
+            padding-top: 100px;
+        }
     }
-    
+
+    @media only screen and (max-width: 700px){
+        .article{
+            margin-right: 0px;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+    }
+
+    @media only screen and (min-width: 700px) and (max-width: 950px) {
+        .article{
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+    }
+
     .Menu a{
         color: white;;
         text-decoration: none;
@@ -81,6 +135,9 @@
         margin-top: 10px;
         position: sticky;
         left: 30px;
+        display: flex; /* Added */
+        justify-content: center; /* Added */
+        align-items: center;
     }
     
     .SocialMedia a img {
@@ -159,6 +216,10 @@
     video{
         margin-bottom: 10px;
         margin-top: 15px;
+        max-width: 100%; /* Ensure the video never exceeds its container */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 10px;
+        margin-top: 15px;
     }
 
 
@@ -179,10 +240,6 @@
     }
 
     .article{
-        margin-top: 100px;
-        margin-left: 300px;
-        margin-right: 100px;
-        margin-bottom: 50px;
         padding: 30px;
         max-width: 800px;
         background-color: #252422;
@@ -222,8 +279,6 @@
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
-        margin-left: 250px;
-        padding-top: 100px;
     }
 
     .Menu, .Menu2, .AboutMe p, .Blog, nav.Discover a h2, .articleMain, .pageDescription, header, .News{
@@ -246,7 +301,7 @@
         background-color: rgb(28, 25, 25);
         padding: 10px;
         white-space: pre-wrap;
-        margin: 20px 00px;
+        margin: 20px 0px;
     }
 
 

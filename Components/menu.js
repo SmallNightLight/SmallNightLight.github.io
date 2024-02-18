@@ -10,7 +10,6 @@ menuTemplate.innerHTML = `
                 <a href="#">About me!</a>
                 <a href="#">All Projects</a>
                 <a href="#">Blog</a>
-                <a href="#">Contact</a>
             </section>
             <section class="SocialMedia">
                 <a href="https://github.com/SmallNightLight" target="_blank">
