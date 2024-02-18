@@ -2,12 +2,11 @@ const menuTemplate = document.createElement('template');
 menuTemplate.innerHTML = `
 <link rel="stylesheet" href="/CSS/style.css">
 <aside class="Menu" id="Menu">
-            <a href="/index.html" class="Logo">
+            <a href="/" class="Logo">
                 <strong>Portfolio</strong>
             </a>
-            <input type="search" id="SearchField" placeholder="Search">
             <section class="MenuItems">
-            <a href="/index.html">Home</a>
+            <a href="/">Home</a>
                 <a href="#">About me!</a>
                 <a href="#">All Projects</a>
                 <a href="#">Blog</a>

@@ -58,15 +58,6 @@
         z-index: 0;
     }
     
-    .Menu input[type="search"] {
-        width: 90%;
-        padding: 5px;
-        margin-bottom: 10px;
-        border: none;
-        border-radius: 3px;
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-    }
-    
     .Menu .MenuItems {
         padding-top: 20px;
         display: flex;
@@ -86,16 +77,13 @@
         cursor: pointer;
     }
     
-   .SocialMedia {
-        padding: 10px;
-        color: white;
-        position: fixed;
-        left: 0px;
-        border: none;
-        bottom: 0px;
-   }
-
-    .SocialMedia a img{
+    .SocialMedia {
+        margin-top: 10px;
+        position: sticky;
+        left: 30px;
+    }
+    
+    .SocialMedia a img {
         width: 30px;
         border: none;
     }
