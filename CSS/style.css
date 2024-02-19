@@ -55,6 +55,7 @@
             color: white;
             top: 150px;
             z-index: 0;
+            margin-bottom: 20px;
         }
 
         .Menu .MenuItems {
@@ -144,75 +145,42 @@
         width: 30px;
         border: none;
     }
-    
-    .Discover {
+
+    .AboutMe {
+        margin: 0px 20px 20px 20px;
+        padding: 20px;
+    }
+
+    .Projects h2{
+        margin-bottom: 20px;
+    }
+
+    .Projects{
+        color: white;
+        margin: 20px;
+        padding: 20px;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        position: relative;
-        flex: 1 1 700px
+        flex-direction: column;
+    }
+
+    .Projects a{
+        color: white;
+    }
+
+    .Project-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .Project-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .Project-content {
+        margin-left: 10px;
     }
     
-    .Discover a {
-        max-width: 230px;
-        width: 230px;
-        height: 180px;
-        background-repeat: no-repeat;
-        background-position: center center;
-        margin: 10px;
-        
-        margin-bottom: 15px;
-        display: flex;
-        align-items:end;
-        justify-content: center;
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 17px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
-
-        flex: 3 1 200px;
-        transition: background-size 0.5s ease-out, color 0.2s ease-in-out;
-        background-size: 100%;
-    }
-
-    .Discover a nav h2 {
-        background-color: rgb(37, 37, 37);
-        border-radius: 3px;
-        padding: 10px;
-        width: 230px;
-        text-align: center;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    .Discover a:hover{
-        background-size: 120%;
-    }
-
-    .Discover a:nth-child(1) {
-        background-image: url(/Pages/Page1/Images/Thumbnail.png);
-    }
-
-    .Discover a:nth-child(2) {
-        background-image: url(/Pages/Page2/Images/Thumbnail.png);
-    }
-
-    .Discover a:nth-child(3) {
-        background-image: url(/Pages/Page3/Images/Thumbnail.png);
-    }
-
-    .Discover a:nth-child(4) {
-        background-image: url(/Pages/Page4/Images/Thumbnail.png);
-    }
-/*
-    .Discover a:nth-child(5) {
-        background-image: url());
-    }
-
-    .Discover a:nth-child(6) {
-        background-image: url());
-    }*/
-
     video{
         margin-bottom: 10px;
         margin-top: 15px;
@@ -229,14 +197,6 @@
   
     .mainMain{
         max-width: 755px;
-    }
-
-    .pageDescription {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        margin-right: 15px;
-        margin-left: 10px;
-        padding: 20px;
     }
 
     .article{
@@ -281,7 +241,7 @@
         justify-content: center;
     }
 
-    .Menu, .Menu2, .AboutMe p, .Blog, nav.Discover a h2, .articleMain, .pageDescription, header, .News{
+    .Menu, .Menu2, .Blog, .articleMain, .AboutMe, header, .News, .Projects{
         border-radius: 3px;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         background-color: #252422;

@@ -7,9 +7,9 @@ menuTemplate.innerHTML = `
             </a>
             <section class="MenuItems">
             <a href="/">Home</a>
-                <a href="#">About me!</a>
-                <a href="#">All Projects</a>
-                <a href="#">Blog</a>
+                <a href="#">About me</a>
+                <a href="#">Projects</a>
+                <a href="#">Blogs</a>
             </section>
             <section class="SocialMedia">
                 <a href="https://github.com/SmallNightLight" target="_blank">
