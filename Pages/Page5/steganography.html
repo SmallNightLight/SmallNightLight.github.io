@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verlet integration</title>
+    <link rel="stylesheet" href="/CSS/style.css"/>
+    <script src="/Components/header.js" type="text/javascript" defer></script>
+    <script src="/Components/menu.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <portfolio-header></portfolio-header>
+    <portfolio-menu></portfolio-menu>
+    <section class="Page" id="Page5">
+        <article class="article">
+            <p>
+                <a href="/">Home</a> > 
+                <a>Steganography</a>
+            </p>
+            <h1>Steganography - Hiding data inside an image</h1>
+
+            <h2>Introduction</h2>
+            <p>What I want to achieve. My inspiration was this video where somebody tried to hide a savefile into a screenshot of an image. This would be a very cool feature - sending a screenshot of the game to your friends and then they could directly play where you left off.</p>
+            <p>This would normally be pretty easy to do as you could just add data to the meta data of an image. The issue that arrises is social media. Most social media platforms remove meta data from an image when sending.</p>
+            <p>The only real oportunity we have is encoding our data directly in the image data. The name of this process is steganography. After a bit of research I discovered that this is actually an insanly complex topic with thousands of research papers on it. It is widely used in cryptography and image watermarking.</p>
+            <p>I started my journey with PNGs but decided against it. The reason is because social media platoforms not only compress the meta data from an image but also the image itself. So pngs often times get compressed into jpegs. The only exception is discord.</p>
+            <p>So if we use an image format that already is compressed it already more likely to get the correct data.</p>
+            <p>Before I dive into the steganography algorithm I will quickly explain how jpeg works.</p>
+            
+            <br>
+            <h2>The JPEG algorithm</h2>
+            <p>The jpeg algorithm is a lossy image compression algorithm that makes use of the huamn eye's limitations in perceiving fine details. It typically compresses images by 90% with only minor visible artifacts.</p>
+            <p>JPEGs can be compressed with different quality levels, where 1 gives the worst quality and 100 the best, but with the highest size.</p>
+            <br>
+            <figure>
+                <figcaption>Quality: 80</figcaption>
+                <img src="Images/JPEG80.jpg">
+            </figure>
+            
+            <figure>
+                <figcaption>Quality: 50</figcaption>
+                <img src="Images/JPEG50.jpg">
+            </figure>
+
+            <figure>
+                <figcaption>Quality: 10</figcaption>
+                <img src="Images/JPEG10.jpg"> 
+            </figure>
+            <br>
+            <H3>Step 1</H3>
+            <p>First the colors are converted from R-G-B to the Y-CB-CR color space (Y: Brightness, Cb = Color blueness, Cr = Color redness). Since the eye is less sensitive to the color channles, they also can be compressed further with chroma subsampling.</p>
+            <br>
+            <H3>Step 2</H3>
+            <p>The image is divided into 8x8 blocks.</p>
+            <img src="Images/Grid400.jpg" width="400"> 
+            <H3>Step 3</H3>
+            <p>Each block is converted with the Discrete cosine transform (DCT). It produces a value for every DCT frequency (like seen below) that when all combined give an proxiimation of the original image. This works because most images have similar neighbouring pixels. With random noise this approach procuces clear artifacts. </p>
+            <img src="Images/DCT.png" width="400">
+            <H3>Step 4</H3>
+            <p>The dct coefficients are quantized. This means the dct coefficients are divide by its corresponding constant in the quantization table. This table is calculated by the quality factor which produces higher number when it is lower. Additionally a higher quantization is applied in the lower frequencies. This gives a lot of 0s which is usefull for later and the core reason how the quality factor impacts the jpeg image.</p>
+            <br>
+            <H3>Step 5</H3>
+            <p>The new dct coefficient are then reordered in a zig-zag pattern This causes the high frequency coefficients to be at the begin of the array and the lowe frequency coefficients at the end.</p>
+            <img src="Images/ZigZag.png" width="400">
+            <H3>Step 6</H3>
+            <p>At the end the bytes are encoded with the huffman algorithm, which compresses the bits further by assigning codes to more frequent bit combinations. This is especially usefull in combination with the previous step, because the lower frequency coefficients tend to have a lot of 0s.</p>
+        
+            
+        </article>
+    </section>
+</body>
+</html>

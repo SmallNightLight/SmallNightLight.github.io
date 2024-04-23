@@ -274,6 +274,14 @@
         margin: 20px 0px;
     }
 
+    figure > img{
+        margin-top: 0px !important;
+    }
+
+    figure > figcaption{
+        margin-top: 10px;
+    }
+
 
     @media only screen and (max-width: 1360px) {
         .News {
