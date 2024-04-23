@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verlet integration</title>
+    <title>Steganography - Hiding data inside an image</title>
     <link rel="stylesheet" href="/CSS/style.css"/>
     <script src="/Components/header.js" type="text/javascript" defer></script>
     <script src="/Components/menu.js" type="text/javascript" defer></script>
@@ -54,18 +54,74 @@
             <p>The image is divided into 8x8 blocks.</p>
             <img src="Images/Grid400.jpg" width="400"> 
             <H3>Step 3</H3>
-            <p>Each block is converted with the Discrete cosine transform (DCT). It produces a value for every DCT frequency (like seen below) that when all combined give an proxiimation of the original image. This works because most images have similar neighbouring pixels. With random noise this approach procuces clear artifacts. </p>
+            <p>Each block is converted with the Discrete cosine transform (DCT). It produces a value for every DCT frequency (like seen below) that when all combined give an proxiimation of the original image. This works because most images have similar neighbouring pixels. With random noise this approach produces clear artifacts. </p>
             <img src="Images/DCT.png" width="400">
             <H3>Step 4</H3>
             <p>The dct coefficients are quantized. This means the dct coefficients are divide by its corresponding constant in the quantization table. This table is calculated by the quality factor which produces higher number when it is lower. Additionally a higher quantization is applied in the lower frequencies. This gives a lot of 0s which is usefull for later and the core reason how the quality factor impacts the jpeg image.</p>
             <br>
             <H3>Step 5</H3>
-            <p>The new dct coefficient are then reordered in a zig-zag pattern This causes the high frequency coefficients to be at the begin of the array and the lowe frequency coefficients at the end.</p>
+            <p>The new dct coefficient are then reordered in a zig-zag pattern This causes the high frequency coefficients to be at the begin of the array and the lower frequency coefficients at the end.</p>
             <img src="Images/ZigZag.png" width="400">
             <H3>Step 6</H3>
             <p>At the end the bytes are encoded with the huffman algorithm, which compresses the bits further by assigning codes to more frequent bit combinations. This is especially usefull in combination with the previous step, because the lower frequency coefficients tend to have a lot of 0s.</p>
         
-            
+            <br>
+            <h2>Steganography</h2>
+            <p>For jpeg images we need to access the dct coefficients and modify them to fit the data. This also means that the visual quality of the image will be impacted. To test the performance we will be measuring the peak signal-to-noise ratio (PSNR), which determines if the visual quality of the new image. When no coefficient has been modifed the PSNR is infinity. From my testing a value above 40 is good and above 60 is unnoticable.</p>
+            <br>
+            <p>For testing I will encode just a message. But because the message might be not long enough to fill the entire image, I will encode random bits for the rest. Otherwise the PSNR is based on the message lenght. All tests are done on a quality of 80.</p>
+            <br>
+            <H3>Algorithm 1: LSB</H3>
+            <p>The least significant bit algorithm encodes the data in the least siginificant bit of the coefficient. I will only use the Y-channel for now.</p>
+            <br>
+            <p>Example:</p>
+            <p>Coefficient: 1100011 (99)</p>
+            <p>if nextbit = 0 -> 1100010 (98)</p>
+            <p>if nextbit = 1 -> 1100011 (99)</p>
+            <br>
+            <p>Results:</p>
+            <img src="Images/LSB.jpg"> 
+            <p>PSNR: 22,45</p>
+            <p>Payload: 38,87%</p>
+            <p>modifying every coefficient increases the size of the image by a lot because all the 0s in the low frequencies were changed. And thus the huffman encoding doesnt work optimal. Most social media platforms will probably detect this and recompress it which will loss all data.</p>
+            <br>
+            <H3>Algorithm 2: LSB without low frequencies</H3>
+            <p>To fix the issues in the first algorithm we can simply exclude all 0s. And since 1 could be modified into 0, we also exclude 1.</p>
+            <br>
+            <p>Results:</p>
+            <img src="Images/LSBExclude01.jpg">
+            <p>PSNR: 40,816</p>
+            <p>Payload: 11,48%</p>
+            <p>Because the payload is smaller it makes sense that the PSNR is higher. This makes the capacity based on the image itself. So a completly white image will have a capacity of 0. In this case for a 1920x1080 image the capcity is 27kb.</p>
+
+            <br>
+            <H3>Algorithm 3: Swap DCT</H3>
+            <p>Up until now the data will be lost when already small modifications. Resizing, scaling attacks and noise attacks are out of scope for now, but I just wanted to highlight an algorithm that is a bit more robust against recompression then the LSB algorithm.</p>
+            <p>For this algorithm we select specific coefficients and compare them.</p>
+            <p>If C1 + Dmin &lt; C2 -> 1 </p>
+            <p>If C1 - Dmin &gt; C2 -> 0 </p>
+            <p>D is the minimum distance between the values (typically D = 1). I also included a maximum distance. The distances limit the visual distortion. For example switching 1 with 20 would be a visible artifact.</p>
+            <br>
+            <p>The different coefficients all have a different impact on the image in terms of visual quality and capacity so I tested which ones best suit this algorithm.</p>
+            <figure>
+                <figcaption>The capacity of every coefficient (in bytes, based on a test image)</figcaption>
+                <img src="Images/Capacity.jpg" width="400">
+            </figure>
+            <p>The high frequencies have the highest capacity. But when testing I learned that the three highest coefficients also introduce the biggest artifacts. The coefficient in the middle frequencies are best for encoding the data. Another conideration for choosing the best coefficient pairs is the quantization table. Since it will impact the values, also when it is a different quantization table, it is important to pair values up that will get the same values on the quantization table.</p>
+            <figure>
+                <figcaption>Every pair highlighted in their own color</figcaption>
+                <img src="Images/SwapCoefficients.jpg" width="400">
+            </figure>
+            <br>
+            <p>Results:</p>
+            <img src="Images/SwapDCT.jpg">
+            <p>PSNR: 44,72</p>
+            <p>Payload: 3,29%</p>
+            <p>The capacity is now even less but this method is a bit more robust. For better robustness the payload will probably go down below 0,1%.</p>
+            <br>
+            <h2>Final remarks</h2>
+            <p>Check out the source code <a href="https://github.com/SmallNightLight/ImageSteganography">here</a> or get the tool directly <a href="https://github.com/SmallNightLight/ImageSteganography/releases/tag/1.0">here</a></p>
+            <img src="Images/ToolImage.jpg">
         </article>
     </section>
 </body>
