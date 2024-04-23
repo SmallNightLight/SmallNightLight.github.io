@@ -20,12 +20,12 @@
             <h1>Steganography - Hiding data inside an image</h1>
 
             <h2>Introduction</h2>
-            <p>What I want to achieve. My inspiration was this video where somebody tried to hide a savefile into a screenshot of an image. This would be a very cool feature - sending a screenshot of the game to your friends and then they could directly play where you left off.</p>
+            <p>I lately watched this <a href="https://www.youtube.com/watch?v=0aBy8wLnpQ8">video</a> where somebody tried to hide a savefile into a screenshot of the game. This would be a very cool feature - sending a screenshot of the game to your friends and then they could directly play where you left off.</p>
             <p>This would normally be pretty easy to do as you could just add data to the meta data of an image. The issue that arrises is social media. Most social media platforms remove meta data from an image when sending.</p>
             <p>The only real oportunity we have is encoding our data directly in the image data. The name of this process is steganography. After a bit of research I discovered that this is actually an insanly complex topic with thousands of research papers on it. It is widely used in cryptography and image watermarking.</p>
             <p>I started my journey with PNGs but decided against it. The reason is because social media platoforms not only compress the meta data from an image but also the image itself. So pngs often times get compressed into jpegs. The only exception is discord.</p>
             <p>So if we use an image format that already is compressed it already more likely to get the correct data.</p>
-            <p>Before I dive into the steganography algorithm I will quickly explain how jpeg works.</p>
+            <p>Before I dive into the steganography algorithm, I will quickly go over the jpeg algorithm</p>
             
             <br>
             <h2>The JPEG algorithm</h2>
