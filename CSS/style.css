@@ -12,7 +12,7 @@
 
     body {
         font-family: 'Titillium Web', sans-serif;
-        background-color: #403D39;
+        background-color: #2F4450;
         color: white;
     }
   
@@ -124,7 +124,7 @@
     }
 
     .Menu a{
-        color: white;;
+        color: white;
         text-decoration: none;
         padding: 13px;
         border-radius: 3px;
@@ -180,11 +180,25 @@
     .Project-item {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+
+        padding-bottom: 10px;
+        border-bottom: 1px solid white;
+    }
+
+    .Project-item:hover img{
+        transform: scale(1.05);
+    }
+
+    .Project-item img {
+        border-radius: 10px;
+        border: 2px solid white;
+        transition: transform 0.3s ease;
     }
 
     .Project-item:last-child {
         margin-bottom: 0;
+        border-bottom: none;
     }
 
     .Project-content {
@@ -202,7 +216,7 @@
 
 
     a:hover{
-        color: #FF5900;
+        color: #d10848;
     }
   
     .mainMain{
@@ -212,7 +226,7 @@
     .article{
         padding: 30px;
         max-width: 800px;
-        background-color: #252422;
+        background-color: #000912;
         justify-content: center;
     }
 
@@ -223,7 +237,7 @@
     }
 
     .article a {
-        color: #FF5900;
+        color: #d10848;
         text-decoration: none;
         border-radius: 3px;
         transition: all 0.2s ease-in-out;
@@ -254,7 +268,7 @@
     .Menu, .Menu2, .Blog, .articleMain, .AboutMe, header, .News, .Projects{
         border-radius: 3px;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        background-color: #252422;
+        background-color: #000912; /*000912 586F7C 285250*/
     }
 
     .Page{
@@ -268,7 +282,7 @@
     }
 
     .code{
-        background-color: rgb(28, 25, 25);
+        background-color: #111d23;
         padding: 10px;
         white-space: pre-wrap;
         margin: 20px 0px;
@@ -322,6 +336,6 @@
         }
 
         .News a:hover{
-            color: #FF5900;
+            color: #d10848;
         }
     }
