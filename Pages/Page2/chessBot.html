@@ -22,6 +22,14 @@
                 In July 2023 <a href="https://www.youtube.com/@SebastianLague">Sebastiaan lague</a> announced a programming challenge for his fellow programmers: Coding a tiny chess bot in C# within a provided framework. The actual AI will get coded by the participant
             </p>
             <br>
+            <p>An example game (10s per player) of the my bot playing against itself:</p>
+            <video height="300" autoplay loop controls>
+                <source src="Videos/DemoGame.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>
+            <br>
+            <p>The bots were given some limitations to give equal chances:</p>
             <ul>
                 <li>Limit of 1024 tokens</li>
                 <li>Only a couple namespaces allowed</li>
@@ -56,11 +64,6 @@
             <br>
             <p>Appart from the best implementation of these system and how they work together, I also learned a lot about optimizing c# code and reducing the token count. This made me discover some interesting ways to code, even though this is probably not how production-ready code should be written :)</p>
             <br>
-            <p>An example game (10s per player) of the the bot playing against itself:</p>
-            <video height="300" autoplay loop controls>
-                <source src="Videos/DemoGame.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
             <p>Here's the final code I submitted <a href="https://github.com/SmallNightLight/Chess-Challenge/blob/main/Chess-Challenge/src/My%20Bot/MyBot.cs">(Github)</a>:</p>
             <section class="code"><code>using ChessChallenge.API;
 using System;

@@ -19,6 +19,13 @@
             </p>
             <h1>Making a dynamic swinging mechanic in unity</h1>
             <p>Here I will show how I create a movement system in unity 2022.3 that includes: swinging, grappling, ground movement. In contrast to other swinging mechanics like spiderman 2, I will do this in 3rd person with a static and orthographic camera. At the end I will also show a small prototype that uses this system.</p>
+            <br>
+            <p>Final result</p><video height="360" autoplay loop controls>
+                <source src="Videos/FinalResult.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+            </video>
+            <br>
+            <br>
             <p>Let's start with the rope that we will be using. To get the attachment point we will do a raycast from the camera:</p>
             <section class="code"><code>private void Update()
 {
