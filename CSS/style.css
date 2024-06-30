@@ -166,6 +166,32 @@
         margin: 0px 20px 20px 20px;
         padding: 20px;
     }
+    
+    .AboutMe h2, .Contact h2 {
+        margin-bottom: 10px;
+    }
+    
+    .AboutMe .content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .AboutMe .content p {
+        flex: 1;
+    }
+    
+    .AboutMe .content img {
+        margin-right: 20px; /* Adds space between the image and the text */
+        max-width: 150px; /* Adjust the size of the image */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 100%;
+    }
+
+    .Contact {
+        margin: 0px 20px 20px 20px;
+        padding: 20px;
+    }
+
 
     .Projects h2{
         margin-bottom: 20px;
@@ -271,7 +297,7 @@
         justify-content: center;
     }
 
-    .Menu, .Menu2, .Blog, .articleMain, .AboutMe, header, .News, .Projects{
+    .Menu, .Menu2, .Blog, .articleMain, .AboutMe, .Contact, header, .News, .Projects{
         border-radius: 3px;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         background-color: #000912; /*000912 586F7C 285250*/
