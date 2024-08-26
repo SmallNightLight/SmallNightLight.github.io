@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toon Engine - now on unity asset store</title>
+    <link rel="stylesheet" href="/CSS/style.css"/>
+    <script src="/Components/header.js" type="text/javascript" defer></script>
+    <script src="/Components/menu.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <portfolio-header></portfolio-header>
+    <portfolio-menu></portfolio-menu>
+    <section class="Page" id="Page5">
+        <article class="article">
+            <p>
+                <a href="/">Home</a> > 
+                <a>Toon Engine</a>
+            </p>
+            <h1>Toon Engine</h1>
+            <p>I created a Toon Render Engine and submitted it to be published on the unity asset store!</p>
+            <a href="https://assetstore.unity.com/packages/slug/294312">Get the package</a> (not yet released)
+            <br>
+            <img src="Images/ToonEngine7.png">
+            <br>
+            <h2>Features</h2>
+            <br>
+            <ul>
+                <li>Toon shading with custom lighting</li>
+                <li>Outlines</li>
+                <li>Line hatching</li>
+                <li>Benday-dots bloom effect</li>
+            </ul>
+            <br>
+            <br>
+            <h2>Toon shading with custom lighting</h2>
+            <img src="Images/ToonEngine4.png">
+            <br>
+            <p>This toon shading is achieved with a ToonShader written in shadergraph and highly customizable. Objects with this shader can receive lighting which is renderer based on a Toon ramp.</p>
+            
+            <br>
+            <h2>Outlines</h2>
+            <img src="Images/ToonEngine6.png">
+            <br>
+            <p>The outlines are applied as a fullscreen render feature. They are normal and depth based.</p>
+
+            <br>
+            <h2>Line hatching</h2>
+            <img src="Images/ToonEngine5.png">
+            <br>
+            <p>This line hatching style style works great for games with a comic book style like Hi-Fi Rush. It uses the unity built in ambient occlusion and is directly added inside the toon shader. The lines are procedurally generated, allowing for great customizability</p>
+
+            <br>
+            <h2>Benday-dots bloom effect</h2>
+            <img src="Images/ToonEngine8.png">
+            <br>
+            <p>This bloom effect is also procedurally generated and uses a custom render feature. It first samples the bloom from the unity bloom shader and then passes the result to a composite shader which creates the ben-day dots bloom effect.</p>
+        </article>
+    </section>
+</body>
+</html>
