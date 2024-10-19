@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&family=Titillium+Web:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
     *{
         margin: 0px;
@@ -12,9 +13,14 @@
 
     body {
         font-family: 'Titillium Web', sans-serif;
-        background-color: #2F4450;
-        color: white;
+        background-color: #212221;
+        color: #f1f1e9;
     }
+
+    ::selection {
+        background-color: #F5CB5C;
+        color: #161616;
+      }
   
     /* Style for the header section */
     header {
@@ -25,11 +31,11 @@
         z-index: 20;
         position: fixed;
         width: 100vw;
-        font-family: 'Shantell sans';
+        font-family: 'Victor Mono';
     }
 
     h1, h2{
-        font-family: 'Shantell sans';
+        font-family: 'Victor Mono';
     }
     
     .Logo p{
@@ -39,8 +45,8 @@
 
     .Logo strong{
         padding: 10px;
-        font-size: 40px;
-        font-family: 'Shantell sans';
+        font-size: 30px;
+        font-family: 'Victor Mono';
     }
 
     .Logo img {
@@ -62,7 +68,7 @@
             width: 100%;
             height: 420px;
             padding: 20px;
-            color: white;
+            color: #f1f1e9;
             top: 150px;
             z-index: 0;
             margin-bottom: 20px;
@@ -90,7 +96,7 @@
             width: 250px;
             height: 100vh;
             padding: 20px;
-            color: white;
+            color: #f1f1e9;
             position: fixed;
             top: 100px;
             left: 0px;
@@ -130,7 +136,7 @@
     }
 
     .Menu a{
-        color: white;
+        color: #f1f1e9;
         text-decoration: none;
         padding: 13px;
         border-radius: 3px;
@@ -198,7 +204,7 @@
     }
 
     .Projects{
-        color: white;
+        color: #f1f1e9;
         margin: 20px;
         padding: 20px;
         display: flex;
@@ -206,7 +212,7 @@
     }
 
     .Projects a{
-        color: white;
+        color: #f1f1e9;
     }
 
     .Project-item {
@@ -215,7 +221,7 @@
         margin-bottom: 10px;
 
         padding-bottom: 10px;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid #f1f1e9;
     }
 
     .Project-item:hover img{
@@ -224,7 +230,7 @@
 
     .Project-item img {
         border-radius: 10px;
-        border: 2px solid white;
+        border: 2px solid #f1f1e9;
         transition: transform 0.3s ease;
     }
 
@@ -248,7 +254,7 @@
 
 
     a:hover{
-        color: #d10848;
+        color: #F5CB5C;
     }
   
     .mainMain{
@@ -258,18 +264,18 @@
     .article{
         padding: 30px;
         max-width: 800px;
-        background-color: #000912;
+        background-color: #161616;
         justify-content: center;
     }
 
     .article h1{
         margin-top: 10px;
         margin-bottom: 30px;
-        font-size: 48px;
+        font-size: 35px;
     }
 
     .article a {
-        color: #d10848;
+        color: #F5CB5C;
         text-decoration: none;
         border-radius: 3px;
         transition: all 0.2s ease-in-out;
@@ -277,7 +283,7 @@
     }
 
     .article a:hover{
-        color: #973500;
+        color: #F5CB5C;
     }
 
     .article img{
@@ -300,7 +306,7 @@
     .Menu, .Menu2, .Blog, .articleMain, .AboutMe, .Contact, header, .News, .Projects{
         border-radius: 3px;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        background-color: #000912; /*000912 586F7C 285250*/
+        background-color: #161616; /*000912 586F7C 285250*/
     }
 
     .Page{
@@ -314,7 +320,7 @@
     }
 
     .code{
-        background-color: #111d23;
+        background-color: #0f0f0f;
         padding: 10px;
         white-space: pre-wrap;
         margin: 20px 0px;
@@ -349,7 +355,7 @@
             padding-bottom: 10px;
             font-size: 27px;
             margin-bottom: 20px;
-            border-bottom: white solid;
+            border-bottom: #f1f1e9 solid;
         }
         
         .News section {
@@ -362,12 +368,12 @@
         }
         
         .News a {
-            color: white;
+            color: #f1f1e9;
             text-decoration: none;
             transition: all 0.2s ease-in-out;
         }
 
         .News a:hover{
-            color: #d10848;
+            color: #F5CB5C;
         }
     }
