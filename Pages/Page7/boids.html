@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boid simulation</title>
+    <link rel="stylesheet" href="/CSS/style.css"/>
+    <script src="/Components/header.js" type="text/javascript" defer></script>
+    <script src="/Components/menu.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <portfolio-header></portfolio-header>
+    <portfolio-menu></portfolio-menu>
+    <section class="Page" id="Page4">
+        <article class="article">
+            <p>
+                <a href="/">Home</a> > 
+                <a>Boid simulation with custom ECS</a>
+            </p>
+            <h1>Boid Simulation with Custom ECS</h1>
+            <p>Recently, I've been working on an Entity Component System (ECS) for my minor. A boid simulation was the perfect choice to test its functionality.</p>
+            <p>I also developed a custom spatial partition grid to optimize the boid interactions. With these optimizations, I achieved a performance of 1600 FPS while simulating 2000 boids.</p>
+            <br>
+            <p>Here is a preview:</p>
+            <video width="740" autoplay loop controls>
+                <source src="Videos/Boids.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+            </video>
+            <br>
+            <br>
+            <p>The physics calculations currently run on a single thread. In the future I might look into making it multi-threaded. The functionality for this is already present as I resolve the boids in in pairs.</p>
+        </article>
+    </section>
+</body>
+</html>

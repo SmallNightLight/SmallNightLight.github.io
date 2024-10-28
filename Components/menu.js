@@ -8,6 +8,7 @@ menuTemplate.innerHTML = `
             <section class="MenuItems">
             <a href="/">Home</a>
                 <a href="/#AboutMe">About me</a>
+                <a href="/#Games">Games</a>
                 <a href="/#Projects">Projects</a>
                 <a href="/#Blogs">Blogs</a>
                 <a href="/#Contact">Contact</a>
